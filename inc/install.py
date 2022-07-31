@@ -63,6 +63,9 @@ class install(Merx):
                         this.transactionSucceeded = False
                     logging.debug(f"Created {str(expectedResult)}.")
 
+                    if (target == "bin"):
+                        logging.debud("Adding execute permissions to {str(expectedResult)}.")
+                        expectedResult.chmod(0o755)
 
             epitome.installed_at = ";".join(installedObjects)
             this.catalog.add(epitome)
