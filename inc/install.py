@@ -64,7 +64,7 @@ class install(Merx):
                     logging.debug(f"Created {str(expectedResult)}.")
 
                     if (target == "bin"):
-                        logging.debug("Adding execute permissions to {str(expectedResult)}.")
+                        logging.debug(f"Adding execute permissions to {str(expectedResult)}.")
                         expectedResult.chmod(0o755)
 
             epitome.installed_at = ";".join(installedObjects)
