@@ -17,7 +17,7 @@ class install(Merx):
             logging.info(f"Installing {tome}...")
             epitome = this.GetTome(tome)
             
-            if (epitome.installed_at is not None and len(epitome.installed_at)):
+            if (epitome.installed_at is not None and len(epitome.installed_at) and epitome.installed_at != "NOT INSTALLED"):
                 logging.debug(f"Skipping installation for {tome}; it appears to be installed.")
                 continue
             
