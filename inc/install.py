@@ -38,11 +38,11 @@ class install(Merx):
                     expectedResult = Path(destination).joinpath(thing.relative_to(candidate)).resolve()
                     installedObjects.append(str(expectedResult))
                     thing = thing.resolve()
+                    logging.debug(f"Copying {str(thing)}.")
 
                     if (thing.is_dir()):
                         try:
-                            shutil.copytree(str(thing), destination)
-                            logging.debug(f"Copied {str(thing)}.")
+                            shutil.copytree(str(thing), expectedResult)
                         except shutil.Error as exc:
                             errors = exc.args[0]
                             for error in errors:
@@ -50,8 +50,7 @@ class install(Merx):
                                 logging.debug(f"{msg}")
                     else: #thing is file
                         try:
-                            shutil.copy(str(thing), destination)
-                            logging.debug(f"Copied {str(thing)}.")
+                            shutil.copy(str(thing), expectedResult)
                         except shutil.Error as exc:
                             errors = exc.args[0]
                             for error in errors:
