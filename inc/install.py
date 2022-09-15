@@ -72,7 +72,7 @@ class install(Merx):
         if (this.transactionSucceeded):
             if (not os.geteuid()): #root = uid 0
                 logging.debug(f"Updating library paths.")
-                this.RunCommand("ldconfig")
+                this.RunCommand(f"ldconfig {Path(this.paths['lib']).resolve()}")
 
     # Required Merx method. See that class for details.
     def DidTransactionSucceed(this):
