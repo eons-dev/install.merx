@@ -62,7 +62,7 @@ class install(Merx):
                         this.transactionSucceeded = False
                     logging.debug(f"Created {str(expectedResult)}.")
 
-                    if (target == "bin"):
+                    if (target in ["bin", "exe"]):
                         logging.debug(f"Adding execute permissions to {str(expectedResult)}.")
                         expectedResult.chmod(0o755)
 
